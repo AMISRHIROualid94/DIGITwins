@@ -4,6 +4,8 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -25,7 +27,10 @@ public class Vehicule {
     private LocalDateTime dateAssurance;
     private LocalDateTime dateVisiteTechnique;
 
-    //private Employer chauffeur;
+    @OneToOne
+    @JoinColumn(name = "Chauffeur_id")
+    private Employer chauffeur;
+
 
     private int nombrePneus;
     private String typePneus;

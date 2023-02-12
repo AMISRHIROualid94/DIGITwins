@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -13,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 
 @Entity
-@Table(name = "carburant")
+@Table(name = "carburants")
 public class Carburant {
 
     @Id
@@ -23,7 +24,10 @@ public class Carburant {
     private Double quantiteConsommee;
     private Double prixUnit;
     private LocalDateTime dateConsomation;
-    //private List<Vehicule> vehicules = new HashSet<>();
+
+    @OneToOne
+    @JoinColumn(name = "Veh_matricule")
+    private Vehicule vehicule ;
 
 
 }

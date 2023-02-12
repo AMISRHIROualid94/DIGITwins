@@ -26,4 +26,21 @@ public class PetitMateriel {
     private LocalDateTime dateEntre;
     private LocalDateTime dateSortie;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinTable(name = "employer_materiels",
+          joinColumns = @JoinColumn(name = "Employer_matricule"),
+            inverseJoinColumns = @JoinColumn(name = "materiel_matricule"))
+    private Employer ouvrier;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinTable(name = "vehicule_materiels",
+            joinColumns = @JoinColumn(name = "vehicule_matricule"),
+            inverseJoinColumns = @JoinColumn(name = "materiel_matricule"))
+    private Vehicule vehicule;
+   /* public void SetEmployer(Employer ouvrier){
+        if(ouvrier !=null){
+            this.ouvrier = ouvrier;
+        }
+    }*/
+
 }
