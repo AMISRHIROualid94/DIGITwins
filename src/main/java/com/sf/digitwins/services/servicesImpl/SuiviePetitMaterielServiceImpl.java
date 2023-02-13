@@ -42,6 +42,16 @@ public class SuiviePetitMaterielServiceImpl implements SuiviePetitMaterielServic
 
     @Override
     public SuiviePetitMateriel save(SuiviePetitMateriel suiviePetitMateriel) {
+        int qSortie = suiviePetitMateriel.getQuantite();
+        String typeMateriel = suiviePetitMateriel.getTypeMateriel();
+        int qStock = stockMaterielService.findByTypeMateriel(typeMateriel);
+        StockMateriel stockMateriel = stockMaterielService.findByTypeMaterielObject(typeMateriel);
+        int qResante = qStock - qSortie;
+        suiviePetitMateriel.setQuantiteResante(qResante);
+        stockMateriel.setQuantiteInitiale(qResante);
+        stockMateriel.setStock_matricule(stockMateriel.getStock_matricule());
+        stockMateriel.setStock_matricule(stockMateriel.getStock_matricule());
+        stockMaterielService.save(stockMateriel);
         return suiviePetitMaterielRepository.save(suiviePetitMateriel);
     }
 

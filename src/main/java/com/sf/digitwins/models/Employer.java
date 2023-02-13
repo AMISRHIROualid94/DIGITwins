@@ -36,13 +36,5 @@ public class Employer extends Person{
     private int nombreRecuperation;
     private int nombreReposTravaille;
 
-    public void setDateSortie(LocalDate dateSortie) {
-        if(dateSortie == null){
-            this.dateSortie = null;
-        }else{
-            this.dateSortie = dateSortie;
-        }
-
-    }
 
 }

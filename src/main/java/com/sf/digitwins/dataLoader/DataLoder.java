@@ -78,7 +78,7 @@ public class DataLoder implements CommandLineRunner {
         employer3.setDateNaissance(LocalDate.parse("1989-11-10"));
         employer3.setSitFamilial(SitFamill.MARRIE.toString());
         employer3.setNombreEnfant(1);
-        employer3.setNumCnss("123456783");
+        employer3.setNumCnss("123456083");
         employer3.setFonction(Fonction.CHAUFFEUR.toString());
         employer3.setDateEmbauche(LocalDate.parse("2023-02-12"));
         employer3.setNombreCongePaye(0);
@@ -112,7 +112,7 @@ public class DataLoder implements CommandLineRunner {
         vehicule2.setDateFinAssurance(LocalDate.parse("2023-05-20"));
         vehicule2.setDateFinVisiteTechnique(LocalDate.parse("2023-10-22"));
         vehicule2.setChauffeur(employer3);
-        vehicule2.setNombrePneus(8);
+        vehicule2.setNombrePneus(6);
         vehicule2.setTypePneus("16R");
 
         vehiculeService.save(vehicule2);
@@ -138,23 +138,39 @@ public class DataLoder implements CommandLineRunner {
         //Ajouter des suivies des PetitMateriel - debut
         suiviePetitMateriel1.setTypeMateriel(TypeMateriel.BALAIS.toString());
         suiviePetitMateriel1.setQuantite(1);
-        int qSortie = suiviePetitMateriel1.getQuantite();
-        String typeMateriel = suiviePetitMateriel1.getTypeMateriel();
-        int qStock = stockMaterielService.findByTypeMateriel(typeMateriel);
-        StockMateriel stockMateriel = stockMaterielService.findByTypeMaterielObject(typeMateriel);
-        int qResante = qStock - qSortie;
-        suiviePetitMateriel1.setQuantiteResante(qResante);
-        stockMateriel.setQuantiteInitiale(qResante);
-        stockMateriel.setStock_matricule(stockMateriel.getStock_matricule());
         suiviePetitMateriel1.setDateSortie(LocalDate.parse("2023-01-22"));
         suiviePetitMateriel1.setOuvrier(employer1);
         suiviePetitMateriel1.setVehicule(null);
-        suiviePetitMaterielRepository.save(suiviePetitMateriel1);
 
-        stockMateriel.setStock_matricule(stockMateriel.getStock_matricule());
-        stockMaterielService.save(stockMateriel);
+        suiviePetitMaterielService.save(suiviePetitMateriel1);
 
+        suiviePetitMateriel2.setTypeMateriel(TypeMateriel.PELL.toString());
+        suiviePetitMateriel2.setQuantite(1);
+        suiviePetitMateriel2.setDateSortie(LocalDate.parse("2023-01-20"));
+        suiviePetitMateriel2.setOuvrier(null);
+        suiviePetitMateriel2.setVehicule(vehicule1);
 
+        suiviePetitMaterielService.save(suiviePetitMateriel2);
+
+        //Ajouter des suivies des PetitMateriel - fin
+
+        //Ajouter des carburants- debut
+        carburant1.setType("10W40");
+        carburant1.setQuantiteConsommee(30d);
+        carburant1.setPrixUnit(9.10);
+        carburant1.setDateConsomation(LocalDate.parse("2023-02-14"));
+        carburant1.setVehicule(vehicule2);
+
+        carburantService.save(carburant1);
+
+        carburant2.setType("e5");
+        carburant2.setQuantiteConsommee(10.5);
+        carburant2.setPrixUnit(9.10);
+        carburant2.setDateConsomation(LocalDate.parse("2023-02-14"));
+        carburant2.setVehicule(vehicule1);
+
+        carburantService.save(carburant2);
+        //Ajouter des carburants- fin
 
 
 

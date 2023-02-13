@@ -18,13 +18,10 @@ import java.time.LocalDate;
 public class StockMateriel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long stock_matricule;
     private String typeMateriel;
     private int quantiteInitiale;
     private LocalDate dateSortie;
 
-    public void setQuantiteInitiale(int quantiteInitiale) {
-       this.quantiteInitiale = quantiteInitiale;
-    }
 }

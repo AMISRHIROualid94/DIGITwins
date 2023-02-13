@@ -1,11 +1,13 @@
 package com.sf.digitwins.services.servicesImpl;
 
 import com.sf.digitwins.models.Employer;
+import com.sf.digitwins.models.SitFamill;
 import com.sf.digitwins.repositories.EmployerRepository;
 import com.sf.digitwins.services.EmployerService;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -35,6 +37,18 @@ public class EmployerServiceImpl implements EmployerService {
 
     @Override
     public Employer save(Employer employer) {
+        LocalDate localDate = employer.getDateSortie();
+        String sitfamilial = employer.getSitFamilial();
+        if (localDate != null){
+            employer.setDateSortie(employer.getDateSortie());
+        }else {
+            employer.setDateSortie(null);
+        }
+        if (sitfamilial.equals(SitFamill.CELIBATAIRE.toString())){
+            employer.setNombreEnfant(0);
+        }else{
+            employer.setNombreEnfant(employer.getNombreEnfant());
+        }
         return employerRepository.save(employer);
     }
 

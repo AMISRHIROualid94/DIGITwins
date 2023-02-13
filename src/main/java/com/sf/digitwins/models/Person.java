@@ -28,12 +28,4 @@ public class Person implements Serializable {
     private String sitFamilial;
     private int nombreEnfant;
 
-    public void setNombreEnfant(int nombreEnfant) {
-        if (this.sitFamilial.equals(SitFamill.CELIBATAIRE.toString())){
-            this.nombreEnfant = 0;
-        }else{
-            this.nombreEnfant = nombreEnfant;
-        }
-
-    }
 }

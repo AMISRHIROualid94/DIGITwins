@@ -14,11 +14,11 @@ import java.time.LocalDate;
 @NoArgsConstructor
 
 @Entity
-@Table(name = "petit_materiel")
+@Table(name = "suivie_petit_materiel")
 public class SuiviePetitMateriel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long pm_matricule;
     private String typeMateriel;
     private int quantite;
