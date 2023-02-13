@@ -3,6 +3,7 @@ package com.sf.digitwins.services.servicesImpl;
 import com.sf.digitwins.models.Employer;
 import com.sf.digitwins.models.SitFamill;
 import com.sf.digitwins.repositories.EmployerRepository;
+import com.sf.digitwins.repositories.SuiviePetitMaterielRepository;
 import com.sf.digitwins.services.EmployerService;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -16,15 +17,18 @@ import java.util.Optional;
 public class EmployerServiceImpl implements EmployerService {
 
     private final EmployerRepository employerRepository;
+    private final SuiviePetitMaterielRepository suiviePetitMaterielRepository;
 
-    public EmployerServiceImpl(EmployerRepository employerRepository) {
+    public EmployerServiceImpl(EmployerRepository employerRepository,
+                               SuiviePetitMaterielRepository suiviePetitMaterielRepository) {
         this.employerRepository = employerRepository;
+        this.suiviePetitMaterielRepository = suiviePetitMaterielRepository;
     }
 
     @Override
     public List<Employer> findAll() {
         List<Employer> employers = new ArrayList<>();
-        Sort sort = Sort.by(Sort.Direction.ASC,"dateEmbauche");
+        Sort sort = Sort.by(Sort.Direction.DESC,"dateEmbauche");
         employerRepository.findAll(sort).forEach(employers::add);
         return employers;
     }

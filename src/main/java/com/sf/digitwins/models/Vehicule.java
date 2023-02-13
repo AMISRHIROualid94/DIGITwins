@@ -26,11 +26,7 @@ public class Vehicule {
     private LocalDate dateFinAssurance;
     private LocalDate dateFinVisiteTechnique;
 
-    @OneToOne
-    @JoinColumn(name = "Chauffeur_id")
-    private Employer chauffeur;
-
-
+    private String ChauffeurNom;
     private int nombrePneus;
     private String typePneus;
 }

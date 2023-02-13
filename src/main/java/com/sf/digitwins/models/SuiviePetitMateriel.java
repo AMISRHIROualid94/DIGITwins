@@ -25,13 +25,8 @@ public class SuiviePetitMateriel {
     private int quantiteResante;
     private LocalDate dateSortie;
 
-    @ManyToOne
-    @JoinColumn(name = "Ouvrier_matricule")
-    private Employer ouvrier;
-
-    @ManyToOne
-    @JoinColumn(name = "vehicule_matricule")
-    private Vehicule vehicule;
+    private String ouvrierNom;
+    private String vehiculeNumParc;
 
 
 }

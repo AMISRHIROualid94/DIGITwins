@@ -62,7 +62,7 @@ public class DataLoder implements CommandLineRunner {
         employer2.setNom("employer2 nom");
         employer2.setPrenom("employer2 prénom");
         employer2.setDateNaissance(LocalDate.parse("1990-11-10"));
-        employer2.setSitFamilial(SitFamill.MARRIE.toString());
+        employer2.setSitFamilial(SitFamill.MARIE.toString());
         employer2.setNombreEnfant(2);
         employer2.setNumCnss("123456783");
         employer2.setFonction(Fonction.CHAUFFEUR.toString());
@@ -76,7 +76,7 @@ public class DataLoder implements CommandLineRunner {
         employer3.setNom("employer2 nom");
         employer3.setPrenom("employer2 prénom");
         employer3.setDateNaissance(LocalDate.parse("1989-11-10"));
-        employer3.setSitFamilial(SitFamill.MARRIE.toString());
+        employer3.setSitFamilial(SitFamill.MARIE.toString());
         employer3.setNombreEnfant(1);
         employer3.setNumCnss("123456083");
         employer3.setFonction(Fonction.CHAUFFEUR.toString());
@@ -97,7 +97,7 @@ public class DataLoder implements CommandLineRunner {
         vehicule1.setDateMiseEnCirculation(LocalDate.parse("2015-06-22"));
         vehicule1.setDateFinAssurance(LocalDate.parse("2023-05-20"));
         vehicule1.setDateFinVisiteTechnique(LocalDate.parse("2023-10-22"));
-        vehicule1.setChauffeur(employer2);
+        vehicule1.setChauffeurNom(employer1.getNom());
         vehicule1.setNombrePneus(8);
         vehicule1.setTypePneus("17R");
 
@@ -111,7 +111,7 @@ public class DataLoder implements CommandLineRunner {
         vehicule2.setDateMiseEnCirculation(LocalDate.parse("2015-06-22"));
         vehicule2.setDateFinAssurance(LocalDate.parse("2023-05-20"));
         vehicule2.setDateFinVisiteTechnique(LocalDate.parse("2023-10-22"));
-        vehicule2.setChauffeur(employer3);
+        vehicule2.setChauffeurNom(employer2.getNom());
         vehicule2.setNombrePneus(6);
         vehicule2.setTypePneus("16R");
 
@@ -139,16 +139,16 @@ public class DataLoder implements CommandLineRunner {
         suiviePetitMateriel1.setTypeMateriel(TypeMateriel.BALAIS.toString());
         suiviePetitMateriel1.setQuantite(1);
         suiviePetitMateriel1.setDateSortie(LocalDate.parse("2023-01-22"));
-        suiviePetitMateriel1.setOuvrier(employer1);
-        suiviePetitMateriel1.setVehicule(null);
+        suiviePetitMateriel1.setOuvrierNom(employer1.getNom());
+        suiviePetitMateriel1.setVehiculeNumParc(null);
 
         suiviePetitMaterielService.save(suiviePetitMateriel1);
 
         suiviePetitMateriel2.setTypeMateriel(TypeMateriel.PELL.toString());
         suiviePetitMateriel2.setQuantite(1);
         suiviePetitMateriel2.setDateSortie(LocalDate.parse("2023-01-20"));
-        suiviePetitMateriel2.setOuvrier(null);
-        suiviePetitMateriel2.setVehicule(vehicule1);
+        suiviePetitMateriel2.setOuvrierNom(null);
+        suiviePetitMateriel2.setVehiculeNumParc(vehicule1.getNumParc());
 
         suiviePetitMaterielService.save(suiviePetitMateriel2);
 
