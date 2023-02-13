@@ -3,9 +3,7 @@ package com.sf.digitwins.models;
 import lombok.*;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -17,16 +15,16 @@ import java.util.Set;
 public class Vehicule {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long matricule;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long veh_matricule;
     private String numParc;
     private String type;
     private String plaquetteMatricule;
     private String marque;
     private String numerChassis;
-    private LocalDateTime dateMiseEnCirculation;
-    private LocalDateTime dateAssurance;
-    private LocalDateTime dateVisiteTechnique;
+    private LocalDate dateMiseEnCirculation;
+    private LocalDate dateFinAssurance;
+    private LocalDate dateFinVisiteTechnique;
 
     @OneToOne
     @JoinColumn(name = "Chauffeur_id")

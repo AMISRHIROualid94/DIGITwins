@@ -1,6 +1,8 @@
 package com.sf.digitwins.models;
 
+
 public enum Fonction {
+
     DIRECTEUR_GENERAL,
     CHEF_EXPLOITATION,
     INGENIEUR,
@@ -10,4 +12,5 @@ public enum Fonction {
     CHAUFFEUR,
     BALAYEUR,
     GARDIEN
+
 }

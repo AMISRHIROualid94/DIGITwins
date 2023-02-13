@@ -3,9 +3,8 @@ package com.sf.digitwins.models;
 import lombok.*;
 
 import javax.persistence.Entity;
-import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -18,8 +17,8 @@ import java.time.LocalDateTime;
 public class Employer extends Person{
 
 
-    public Employer(Long matricule, String nom, String prenom, LocalDateTime dateNaissance, SitFamill sitFamill, int nombreEnfant,String numCnss, Fonction fonction, LocalDateTime dateEmbauche, LocalDateTime dateSortie, int nombreCongePaye, int nombreRecuperation, int nombreReposTravaille) {
-        super(matricule,nom,prenom,dateNaissance,sitFamill,nombreEnfant);
+    public Employer(Long matricule, String nom, String prenom, LocalDate dateNaissance, String sitFamilial, int nombreEnfant,String numCnss, String fonction, LocalDate dateEmbauche, LocalDate dateSortie, int nombreCongePaye, int nombreRecuperation, int nombreReposTravaille) {
+        super(matricule,nom,prenom,dateNaissance,sitFamilial,nombreEnfant);
         this.numCnss = numCnss;
         this.fonction = fonction;
         this.dateEmbauche = dateEmbauche;
@@ -30,11 +29,20 @@ public class Employer extends Person{
     }
 
     private String numCnss;
-    private Fonction fonction;
-    private LocalDateTime dateEmbauche;
-    private LocalDateTime dateSortie;
+    private String fonction;
+    private LocalDate dateEmbauche;
+    private LocalDate dateSortie;
     private int nombreCongePaye;
     private int nombreRecuperation;
     private int nombreReposTravaille;
+
+    public void setDateSortie(LocalDate dateSortie) {
+        if(dateSortie == null){
+            this.dateSortie = null;
+        }else{
+            this.dateSortie = dateSortie;
+        }
+
+    }
 
 }

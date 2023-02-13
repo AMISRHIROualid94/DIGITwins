@@ -10,7 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -20,13 +20,20 @@ import java.time.LocalDateTime;
 public class Person implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long matricule;
     private String nom;
     private String prenom;
-    private LocalDateTime dateNaissance;
-    private SitFamill sitFamill;
+    private LocalDate dateNaissance;
+    private String sitFamilial;
     private int nombreEnfant;
 
+    public void setNombreEnfant(int nombreEnfant) {
+        if (this.sitFamilial.equals(SitFamill.CELIBATAIRE.toString())){
+            this.nombreEnfant = 0;
+        }else{
+            this.nombreEnfant = nombreEnfant;
+        }
 
+    }
 }

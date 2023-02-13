@@ -3,10 +3,7 @@ package com.sf.digitwins.models;
 import lombok.*;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -18,12 +15,12 @@ import java.util.Set;
 public class Carburant {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long matricule;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long carb_matricule;
     private String type; // nous pouvons avoir besoin d'une Enumeration des type (ex: 10w40, e5...)
     private Double quantiteConsommee;
     private Double prixUnit;
-    private LocalDateTime dateConsomation;
+    private LocalDate dateConsomation;
 
     @OneToOne
     @JoinColumn(name = "Veh_matricule")
