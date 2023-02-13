@@ -146,14 +146,13 @@ public class DataLoder implements CommandLineRunner {
         suiviePetitMateriel1.setQuantiteResante(qResante);
         stockMateriel.setQuantiteInitiale(qResante);
         stockMateriel.setStock_matricule(stockMateriel.getStock_matricule());
-
         suiviePetitMateriel1.setDateSortie(LocalDate.parse("2023-01-22"));
         suiviePetitMateriel1.setOuvrier(employer1);
-        suiviePetitMateriel1.setVehicule(vehicule1);
-
+        suiviePetitMateriel1.setVehicule(null);
         suiviePetitMaterielRepository.save(suiviePetitMateriel1);
-        stockMaterielService.save(stockMateriel);
 
+        stockMateriel.setStock_matricule(stockMateriel.getStock_matricule());
+        stockMaterielService.save(stockMateriel);
 
 
 
