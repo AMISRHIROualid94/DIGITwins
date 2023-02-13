@@ -20,6 +20,7 @@ public class Vehicule {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long matricule;
     private String numParc;
+    private String type;
     private String plaquetteMatricule;
     private String marque;
     private String numerChassis;

@@ -4,4 +4,5 @@ import com.sf.digitwins.models.PetitMateriel;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface PetitMaterielRepository extends JpaRepository<PetitMateriel,Long> {
+
 }
