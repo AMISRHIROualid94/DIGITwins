@@ -49,9 +49,9 @@ public class DataLoder implements CommandLineRunner {
         employer1.setNom("employer1 nom");
         employer1.setPrenom("employer1 prénom");
         employer1.setDateNaissance(LocalDate.parse("1994-02-14"));
-        employer1.setSitFamilial(SitFamill.CELIBATAIRE.toString());
+        employer1.setSitFamilial(SitFamill.CELIBATAIRE);
         employer1.setNumCnss("123456783");
-        employer1.setFonction(Fonction.BALAYEUR.toString());
+        employer1.setFonction(Fonction.BALAYEUR);
         employer1.setDateEmbauche(LocalDate.parse("2023-02-14"));
         employer1.setNombreCongePaye(0);
         employer1.setNombreRecuperation(0);
@@ -62,10 +62,10 @@ public class DataLoder implements CommandLineRunner {
         employer2.setNom("employer2 nom");
         employer2.setPrenom("employer2 prénom");
         employer2.setDateNaissance(LocalDate.parse("1990-11-10"));
-        employer2.setSitFamilial(SitFamill.MARIE.toString());
+        employer2.setSitFamilial(SitFamill.MARIE);
         employer2.setNombreEnfant(2);
         employer2.setNumCnss("123456783");
-        employer2.setFonction(Fonction.CHAUFFEUR.toString());
+        employer2.setFonction(Fonction.CHAUFFEUR);
         employer2.setDateEmbauche(LocalDate.parse("2023-02-12"));
         employer2.setNombreCongePaye(0);
         employer2.setNombreRecuperation(0);
@@ -76,10 +76,10 @@ public class DataLoder implements CommandLineRunner {
         employer3.setNom("employer2 nom");
         employer3.setPrenom("employer2 prénom");
         employer3.setDateNaissance(LocalDate.parse("1989-11-10"));
-        employer3.setSitFamilial(SitFamill.MARIE.toString());
+        employer3.setSitFamilial(SitFamill.MARIE);
         employer3.setNombreEnfant(1);
         employer3.setNumCnss("123456083");
-        employer3.setFonction(Fonction.CHAUFFEUR.toString());
+        employer3.setFonction(Fonction.CHAUFFEUR);
         employer3.setDateEmbauche(LocalDate.parse("2023-02-12"));
         employer3.setNombreCongePaye(0);
         employer3.setNombreRecuperation(0);
@@ -119,13 +119,13 @@ public class DataLoder implements CommandLineRunner {
         //Ajouter des Véhicules - fin
 
         //Ajouter des Stocks - debut
-        stockMateriel1.setTypeMateriel(TypeMateriel.BALAIS.toString());
+        stockMateriel1.setTypeMateriel(TypeMateriel.BALAIS);
         stockMateriel1.setQuantiteInitiale(30);
         stockMateriel1.setDateSortie(LocalDate.parse("2023-02-11"));
 
         stockMaterielService.save(stockMateriel1);
 
-        stockMateriel2.setTypeMateriel(TypeMateriel.PELL.toString());
+        stockMateriel2.setTypeMateriel(TypeMateriel.PELL);
         stockMateriel2.setQuantiteInitiale(30);
         stockMateriel2.setDateSortie(LocalDate.parse("2023-02-11"));
 
@@ -136,7 +136,7 @@ public class DataLoder implements CommandLineRunner {
 
 
         //Ajouter des suivies des PetitMateriel - debut
-        suiviePetitMateriel1.setTypeMateriel(TypeMateriel.BALAIS.toString());
+        suiviePetitMateriel1.setTypeMateriel(TypeMateriel.BALAIS);
         suiviePetitMateriel1.setQuantite(1);
         suiviePetitMateriel1.setDateSortie(LocalDate.parse("2023-01-22"));
         suiviePetitMateriel1.setOuvrierNom(employer1.getNom());
@@ -144,7 +144,7 @@ public class DataLoder implements CommandLineRunner {
 
         suiviePetitMaterielService.save(suiviePetitMateriel1);
 
-        suiviePetitMateriel2.setTypeMateriel(TypeMateriel.PELL.toString());
+        suiviePetitMateriel2.setTypeMateriel(TypeMateriel.PELL);
         suiviePetitMateriel2.setQuantite(1);
         suiviePetitMateriel2.setDateSortie(LocalDate.parse("2023-01-20"));
         suiviePetitMateriel2.setOuvrierNom(null);

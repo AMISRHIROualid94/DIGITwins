@@ -20,7 +20,9 @@ public class SuiviePetitMateriel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long pm_matricule;
-    private String typeMateriel;
+
+    @Enumerated(EnumType.STRING)
+    private TypeMateriel typeMateriel;
     private int quantite;
     private int quantiteResante;
     private LocalDate dateSortie;

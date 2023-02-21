@@ -3,6 +3,8 @@ package com.sf.digitwins.models;
 import lombok.*;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Table;
 import java.time.LocalDate;
 
@@ -17,7 +19,7 @@ import java.time.LocalDate;
 public class Employer extends Person{
 
 
-    public Employer(Long matricule, String nom, String prenom, LocalDate dateNaissance, String sitFamilial, int nombreEnfant,String numCnss, String fonction, LocalDate dateEmbauche, LocalDate dateSortie, int nombreCongePaye, int nombreRecuperation, int nombreReposTravaille) {
+    public Employer(Long matricule, String nom, String prenom, LocalDate dateNaissance, SitFamill sitFamilial, int nombreEnfant,String numCnss, Fonction fonction, LocalDate dateEmbauche, LocalDate dateSortie, int nombreCongePaye, int nombreRecuperation, int nombreReposTravaille) {
         super(matricule,nom,prenom,dateNaissance,sitFamilial,nombreEnfant);
         this.numCnss = numCnss;
         this.fonction = fonction;
@@ -29,7 +31,9 @@ public class Employer extends Person{
     }
 
     private String numCnss;
-    private String fonction;
+
+    @Enumerated(EnumType.STRING)
+    private Fonction fonction;
     private LocalDate dateEmbauche;
     private LocalDate dateSortie;
     private int nombreCongePaye;

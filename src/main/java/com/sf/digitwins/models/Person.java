@@ -5,10 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 
@@ -25,7 +22,8 @@ public class Person implements Serializable {
     private String nom;
     private String prenom;
     private LocalDate dateNaissance;
-    private String sitFamilial;
+    @Enumerated(EnumType.STRING)
+    private SitFamill sitFamilial;
     private int nombreEnfant;
 
 }

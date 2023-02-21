@@ -20,7 +20,9 @@ public class StockMateriel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long stock_matricule;
-    private String typeMateriel;
+
+    @Enumerated(EnumType.STRING)
+    private TypeMateriel typeMateriel;
     private int quantiteInitiale;
     private LocalDate dateSortie;
 

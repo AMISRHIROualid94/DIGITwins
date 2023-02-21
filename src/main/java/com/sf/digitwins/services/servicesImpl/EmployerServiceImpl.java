@@ -42,7 +42,7 @@ public class EmployerServiceImpl implements EmployerService {
     @Override
     public Employer save(Employer employer) {
         LocalDate localDate = employer.getDateSortie();
-        String sitfamilial = employer.getSitFamilial();
+        SitFamill sitfamilial = employer.getSitFamilial();
         if (localDate != null){
             employer.setDateSortie(employer.getDateSortie());
         }else {

@@ -2,6 +2,7 @@ package com.sf.digitwins.services.servicesImpl;
 
 import com.sf.digitwins.models.StockMateriel;
 import com.sf.digitwins.models.SuiviePetitMateriel;
+import com.sf.digitwins.models.TypeMateriel;
 import com.sf.digitwins.repositories.SuiviePetitMaterielRepository;
 import com.sf.digitwins.services.StockMaterielService;
 import com.sf.digitwins.services.SuiviePetitMaterielService;
@@ -43,7 +44,7 @@ public class SuiviePetitMaterielServiceImpl implements SuiviePetitMaterielServic
     @Override
     public SuiviePetitMateriel save(SuiviePetitMateriel suiviePetitMateriel) {
         int qSortie = suiviePetitMateriel.getQuantite();
-        String typeMateriel = suiviePetitMateriel.getTypeMateriel();
+        TypeMateriel typeMateriel = suiviePetitMateriel.getTypeMateriel();
         int qStock = stockMaterielService.findByTypeMateriel(typeMateriel);
         StockMateriel stockMateriel = stockMaterielService.findByTypeMaterielObject(typeMateriel);
         int qResante = qStock - qSortie;

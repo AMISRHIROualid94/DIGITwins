@@ -1,6 +1,7 @@
 package com.sf.digitwins.services.servicesImpl;
 
 import com.sf.digitwins.models.StockMateriel;
+import com.sf.digitwins.models.TypeMateriel;
 import com.sf.digitwins.repositories.StockMaterielRepository;
 import com.sf.digitwins.services.StockMaterielService;
 import org.springframework.data.domain.Sort;
@@ -49,13 +50,13 @@ public class StockMaterielServiceImpl implements StockMaterielService {
     }
 
     @Override
-    public int findByTypeMateriel(String type) {
+    public int findByTypeMateriel(TypeMateriel type) {
         int quantite = stockMaterielRepository.findByTypeMateriel(type).getQuantiteInitiale();
         return quantite;
     }
 
     @Override
-    public StockMateriel findByTypeMaterielObject(String type) {
+    public StockMateriel findByTypeMaterielObject(TypeMateriel type) {
         return stockMaterielRepository.findByTypeMateriel(type);
     }
 }
