@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/employers",produces = "application/json")
+@RequestMapping(value = "/api/employers",produces = "application/json")
 @CrossOrigin("*")
 public class EmployerController {
 
