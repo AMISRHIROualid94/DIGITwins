@@ -18,6 +18,7 @@
         <module>Employer-Service</module>
         <module>Materiel-Service</module>
         <module>Eureka-Server</module>
+        <module>Api-gateway</module>
     </modules>
     <properties>
         <java.version>11</java.version>

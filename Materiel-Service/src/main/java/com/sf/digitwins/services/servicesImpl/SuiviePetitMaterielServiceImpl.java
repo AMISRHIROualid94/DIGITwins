@@ -30,7 +30,7 @@ public class SuiviePetitMaterielServiceImpl implements SuiviePetitMaterielServic
     @Override
     public List<SuiviePetitMateriel> findAll() {
         List<SuiviePetitMateriel> suiviePetitMateriels = new ArrayList<>();
-        Sort sort = Sort.by(Sort.Direction.DESC,"dateEntre");
+        Sort sort = Sort.by(Sort.Direction.DESC,"typeMateriel");
         suiviePetitMaterielRepository.findAll(sort).forEach(suiviePetitMateriels::add);
         return suiviePetitMateriels;
     }

@@ -23,7 +23,7 @@ public class StockMaterielServiceImpl implements StockMaterielService {
     @Override
     public List<StockMateriel> findAll() {
         List<StockMateriel> stockMateriels = new ArrayList<>();
-        Sort sort = Sort.by(Sort.Direction.ASC,"dateEntre");
+        Sort sort = Sort.by(Sort.Direction.ASC,"dateSortie");
         stockMaterielRepository.findAll(sort).forEach(stockMateriels::add);
         return stockMateriels;
     }

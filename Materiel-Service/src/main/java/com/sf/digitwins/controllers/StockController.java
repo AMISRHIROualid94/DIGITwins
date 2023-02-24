@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/api/stocks",produces = "application/json")
+@RequestMapping(value = "/api/materiel-service/stocks",produces = "application/json")
 @CrossOrigin("*")
 public class StockController {
 
