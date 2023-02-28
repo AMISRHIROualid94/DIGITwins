@@ -3,19 +3,21 @@ package com.sf.digitwins.controllers;
 import com.sf.digitwins.models.Employer;
 import com.sf.digitwins.services.EmployerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api/employers",produces = "application/json")
-@CrossOrigin("*")
+@CrossOrigin(origins = "*")
 public class EmployerController {
 
     @Autowired
     private EmployerService employerService;
 
     @GetMapping
+    @ResponseStatus(HttpStatus.OK)
     public List<Employer> getAllEmployers(){
         return employerService.findAll();
     }
