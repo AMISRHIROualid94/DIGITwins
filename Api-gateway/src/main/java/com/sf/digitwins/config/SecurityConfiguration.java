@@ -1,7 +1,9 @@
 package com.sf.digitwins.config;
 
+import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
 import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.web.server.SecurityWebFilterChain;
@@ -15,7 +17,7 @@ public class SecurityConfiguration {
         serverHttpSecurity
                 .csrf().disable()
                 .authorizeExchange(exchange -> exchange
-                        .pathMatchers("/eureka/**")
+                        .pathMatchers("/eureka/**","/h2-console/**")
                         .permitAll()
                         .anyExchange()
                         .authenticated())

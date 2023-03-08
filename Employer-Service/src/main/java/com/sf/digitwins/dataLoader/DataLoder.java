@@ -51,13 +51,13 @@ public class DataLoder implements CommandLineRunner {
 
         employerService.save(employer2);
 
-        employer3.setNom("employer2 nom");
-        employer3.setPrenom("employer2 prénom");
+        employer3.setNom("employer3 nom");
+        employer3.setPrenom("employer3 prénom");
         employer3.setDateNaissance(LocalDate.parse("1989-11-10"));
         employer3.setSitFamilial(SitFamill.MARIE);
         employer3.setNombreEnfant(1);
         employer3.setNumCnss("123456083");
-        employer3.setFonction(Fonction.CHAUFFEUR);
+        employer3.setFonction(Fonction.GARDIEN);
         employer3.setDateEmbauche(LocalDate.parse("2023-02-12"));
         employer3.setNombreCongePaye(0);
         employer3.setNombreRecuperation(0);

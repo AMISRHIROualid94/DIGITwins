@@ -16,6 +16,11 @@ public class EmployerController {
     @Autowired
     private EmployerService employerService;
 
+    @GetMapping ("/employermsg")
+    public String getMessage(){
+        return "Message from employer";
+    }
+
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<Employer> getAllEmployers(){
