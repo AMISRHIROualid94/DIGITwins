@@ -28,9 +28,8 @@ public class VehiculeController {
     private VehiculeService vehiculeService;
 
 
-    @GetMapping("/vehiculemsg")
-    public List<EmployerResponse> getMessage(){
-        Long mat = 1L;
+    @GetMapping("/employers")
+    public List<EmployerResponse> getAllEmployers(){
         Jwt jwt = (Jwt) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Employer[] employers = builder.build().get()
                 .uri("http://localhost:8080/api/employers")
