@@ -34,6 +34,7 @@ public class DataLoder implements CommandLineRunner {
         employer1.setNombreCongePaye(0);
         employer1.setNombreRecuperation(0);
         employer1.setNombreReposTravaille(0);
+        employer1.setAffected(true);
 
         employerService.save(employer1);
 
@@ -62,6 +63,7 @@ public class DataLoder implements CommandLineRunner {
         employer3.setNombreCongePaye(0);
         employer3.setNombreRecuperation(0);
         employer3.setNombreReposTravaille(0);
+        employer3.setAffected(true);
 
         employerService.save(employer3);
         //Ajouter des Employers - fin

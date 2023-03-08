@@ -49,6 +49,9 @@ public class EmployerServiceImpl implements EmployerService {
         }else{
             employer.setNombreEnfant(employer.getNombreEnfant());
         }
+        if (!employer.isAffected()){
+            employer.setAffected(false);
+        }
         return employerRepository.save(employer);
     }
 

@@ -28,26 +28,24 @@ public class VehiculeController {
     private VehiculeService vehiculeService;
 
 
-    @GetMapping("/employers")
-    public List<EmployerResponse> getAllEmployers(){
+    @GetMapping("/employers/{matricule}")
+    public String getAllEmployers(@PathVariable Long matricule){
         Jwt jwt = (Jwt) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        Employer[] employers = builder.build().get()
-                .uri("http://localhost:8080/api/employers")
+        Employer employer = builder.build().get()
+                .uri("http://localhost:8080/api/employers/{matricule}",matricule)
                 .headers(header -> header.setBearerAuth(jwt.getTokenValue()))
                 .retrieve()
-                .bodyToMono(Employer[].class)
+                .bodyToMono(Employer.class)
                 .block();
-        List<EmployerResponse> employerResponses = new ArrayList<>();
 
-        Arrays.stream(employers).forEach(employer -> {
-            EmployerResponse employerResponse = new EmployerResponse();
-            employerResponse.setNom(employer.getNom());
-            employerResponse.setPrenom(employer.getPrenom());
-            employerResponse.setFonction(employer.getFonction().toString());
-            employerResponses.add(employerResponse);
-        });
+        if (!employer.isAffected()){
+            return "Chauffeur "+employer.getNom()+" est libre";
+        }else
+        {
+            return "Chauffeur "+employer.getNom()+" est déjà affecter!!";
+            //throw new IllegalArgumentException("Chauffeur est déjà affecter!!");
+        }
 
-        return employerResponses;
     }
 
     @GetMapping

@@ -19,7 +19,7 @@ import java.time.LocalDate;
 public class Employer extends Person{
 
 
-    public Employer(Long matricule, String nom, String prenom, LocalDate dateNaissance, SitFamill sitFamilial, int nombreEnfant,String numCnss, Fonction fonction, LocalDate dateEmbauche, LocalDate dateSortie, int nombreCongePaye, int nombreRecuperation, int nombreReposTravaille) {
+    public Employer(Long matricule, String nom, String prenom, LocalDate dateNaissance, SitFamill sitFamilial, int nombreEnfant,String numCnss, Fonction fonction, LocalDate dateEmbauche, LocalDate dateSortie, int nombreCongePaye, int nombreRecuperation, int nombreReposTravaille,Boolean affected) {
         super(matricule,nom,prenom,dateNaissance,sitFamilial,nombreEnfant);
         this.numCnss = numCnss;
         this.fonction = fonction;
@@ -28,6 +28,7 @@ public class Employer extends Person{
         this.nombreCongePaye = nombreCongePaye;
         this.nombreRecuperation = nombreRecuperation;
         this.nombreReposTravaille = nombreReposTravaille;
+        this.affected = affected;
     }
 
     private String numCnss;
@@ -40,6 +41,7 @@ public class Employer extends Person{
     private int nombreRecuperation;
     private int nombreReposTravaille;
 
+    private boolean affected;
 
 
 }

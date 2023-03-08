@@ -35,7 +35,7 @@ public class DataLoder implements CommandLineRunner {
 
 
 
-        Carburant carburant1 = new Carburant();
+        /*Carburant carburant1 = new Carburant();
         Carburant carburant2 = new Carburant();
         StockMateriel stockMateriel1 = new StockMateriel();
         StockMateriel stockMateriel2 = new StockMateriel();
@@ -126,7 +126,7 @@ public class DataLoder implements CommandLineRunner {
         carburant2.setDateConsomation(LocalDate.parse("2023-02-14"));
         carburant2.setVehicule(vehicule1);
 
-        carburantService.save(carburant2);
+        carburantService.save(carburant2);*/
         //Ajouter des carburants- fin
 
 
