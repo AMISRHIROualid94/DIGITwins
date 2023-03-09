@@ -26,7 +26,7 @@ public class Vehicule {
     private LocalDate dateFinAssurance;
     private LocalDate dateFinVisiteTechnique;
 
-    private String ChauffeurNom;
+    private Long ChauffeurId;
     private int nombrePneus;
     private String typePneus;
 }

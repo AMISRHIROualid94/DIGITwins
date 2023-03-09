@@ -54,7 +54,7 @@ public class DataLoder implements CommandLineRunner {
         vehicule1.setDateMiseEnCirculation(LocalDate.parse("2015-06-22"));
         vehicule1.setDateFinAssurance(LocalDate.parse("2023-05-20"));
         vehicule1.setDateFinVisiteTechnique(LocalDate.parse("2023-10-22"));
-        vehicule1.setChauffeurNom(null);
+        vehicule1.setChauffeurId(null);
         vehicule1.setNombrePneus(8);
         vehicule1.setTypePneus("17R");
 
@@ -68,7 +68,7 @@ public class DataLoder implements CommandLineRunner {
         vehicule2.setDateMiseEnCirculation(LocalDate.parse("2015-06-22"));
         vehicule2.setDateFinAssurance(LocalDate.parse("2023-05-20"));
         vehicule2.setDateFinVisiteTechnique(LocalDate.parse("2023-10-22"));
-        vehicule2.setChauffeurNom(null);
+        vehicule2.setChauffeurId(null);
         vehicule2.setNombrePneus(6);
         vehicule2.setTypePneus("16R");
 
