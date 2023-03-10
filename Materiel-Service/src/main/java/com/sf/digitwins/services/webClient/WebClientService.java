@@ -2,6 +2,7 @@ package com.sf.digitwins.services.webClient;
 
 import com.sf.digitwins.dto.Employer;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.stereotype.Component;
@@ -13,6 +14,7 @@ import reactor.core.publisher.Mono;
 public class WebClientService {
 
     private final WebClient.Builder webClientBuilder;
+
 
     public Employer getEmployer(Long matricule){
         Jwt jwt = (Jwt) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -39,7 +41,7 @@ public class WebClientService {
 
 
     public void editChauffeurId(Long matricule,Employer employer){
-        Jwt jwt = (Jwt) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+       Jwt jwt = (Jwt) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         webClientBuilder.build().put()
                 .uri("http://localhost:8080/api/employers/{matricule}",matricule)
                 .body(Mono.just(employer),Employer.class)

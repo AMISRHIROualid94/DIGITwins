@@ -38,18 +38,6 @@ public class EmployerController {
         return employerService.save(employer);
     }
 
-    @PatchMapping("/{matricule}")
-    public Employer patchEmployer(@PathVariable Long matricule,@RequestBody Employer employer){
-        Employer employer1 = employerService.findById(matricule);
-        if(!employer1.isAffected()){
-            employer1.setAffected(employer.isAffected());
-        }
-        if(employer1.isAffected()){
-            employer1.setAffected(employer.isAffected());
-        }
-        return employerService.save(employer1);
-    }
-
     @DeleteMapping
     public void deleteAll(){
         employerService.deleteAll();
